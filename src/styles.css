@@ -69,3 +69,21 @@ hr{
 .fadeIn {
   animation-name: fadeIn;
 }
+
+
+.top30{
+  margin-top:30px;
+}
+
+.bottom40{
+  margin-bottom:40px;
+}
+.song{
+  padding:20px 0px;
+  border-bottom:1px solid #f3f3f3;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+

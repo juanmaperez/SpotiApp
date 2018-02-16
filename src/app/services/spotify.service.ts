@@ -1,21 +1,54 @@
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
+import 'rxjs/add/operator/map';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RequestOptions, Headers } from '@angular/http';
 
 
 @Injectable()
 export class SpotifyService {
 
-  private token : string = "BQAOLfi1wPCxuFeq3XZCfIKeiR_4t4pzKGNiZc1y7hDwCIEUSu_WLPY2o1HEl8soUMtPip3Hpy_g1o7KG6U"
+  public artists;
+  private token : string = "BQCjh0nJ3FEzbQx3y5eH0Ksk5rd8imomICFLgAHvx79CqAoWjBY8c5OKmZHTE21lrBGKgoU1t_WBMByBS94";
   
+  url: string = 'https://api.spotify.com/v1/';
+
   constructor(public http: HttpClient) { }
 
 
+  public getHeaders(): HttpHeaders {
+    let headers = new HttpHeaders({
+      'Authorization' : 'Bearer ' + this.token
+    })
+    return headers
+  }
 
+
+
+  getArtists(search: string){
+    let headers = this.getHeaders();
+
+    return this.http.get(`${this.url}search?query=${search}&type=artist&limit=20`, { headers })
+      .map((res:any) => {
+        this.artists = res.artists.items;
+        return this.artists
+      })
+  }
+
+
+  getArtist(id: string){
+    let headers = this.getHeaders();
+    return this.http.get(`${this.url}artists/${id}`, {headers})
+         
+  }
+
+  getTopTracks(id : string){
+    let headers = this.getHeaders();
+    return this.http
+    .get(`${this.url}artists/${id}/top-tracks?country=ES`, {headers})
+    .map((res:any)=> res.tracks)
+  }
 
 
 }

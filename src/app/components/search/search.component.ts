@@ -9,11 +9,21 @@ import { SpotifyService } from '../../services/spotify.service';
 })
 export class SearchComponent implements OnInit {
 
+  search: string = '';
+
   constructor(public _spotify : SpotifyService) { }
 
   ngOnInit() {
+  
+  }
 
-
+  searchArtists(){
+    if(this.search.length > 1){
+    this._spotify.getArtists(this.search)
+      .subscribe((data)=>{
+        
+      })
+    }
   }
 
 
