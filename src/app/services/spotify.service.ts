@@ -10,7 +10,7 @@ import { RequestOptions, Headers } from '@angular/http';
 export class SpotifyService {
 
   public artists;
-  private token : string = "BQCjh0nJ3FEzbQx3y5eH0Ksk5rd8imomICFLgAHvx79CqAoWjBY8c5OKmZHTE21lrBGKgoU1t_WBMByBS94";
+  private token : string = "BQD_X9RA2zziqFeDxDxoC-OayQRR8AKuk8BvTXrzXwXBnXGwJ8XxRHC_QFci3ZerK0Tvw4sxeo4JrRjart0";
   
   url: string = 'https://api.spotify.com/v1/';
 

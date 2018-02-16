@@ -1,0 +1,35 @@
+.main-info{
+    position: relative;
+    
+    .popularity{
+        text-align:center;
+        border:1px solid #f3f3f3;
+        padding:8px;
+        border-radius:25px;
+        max-width:50px;
+    }
+
+}
+
+
+.song{
+    max-width:80%;
+    padding:10px 0px;
+    border-bottom:1px solid #f3f3f3;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+  
+    div {
+        box-sizing: border-box;
+        max-height:115px;
+        text-align: left;
+
+
+        iframe{
+            margin-top:30px;
+        }
+    }
+  }

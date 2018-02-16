@@ -3,19 +3,35 @@
     <div class="col-sm-2">
       <img *ngIf="picture" [src]="picture" class="img-thumbnail">
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-10 main-info">
       <h2>
         {{artist.name}}
       </h2>
+      <p class="popularity">{{artist.popularity}}</p>
+
+      <a class="btn btn-outline-success" [href]="artist.external_urls?.spotify" target="_blank">Spotify</a>
+      <button class="btn btn-outline-danger" [routerLink]="['/search']">Back</button>
     </div>
   </div>
   <div *ngFor="let song of songs" class="row song">
     <div class="col-sm-1">
-        <img [src]="song.album.images[2].url" class="img-thumbnail">
+        <img [src]="song.album.images[2]?.url" class="img-thumbnail">
     </div>
-    <div class="col-sm-11">
+    <div class="col-sm-4">
+      <h6>
           {{song.name}}
+      </h6>
     </div>
+    <div class="col-sm-1">
+      <h6>
+          {{song.popularity}}
+      </h6>
+    </div>
+    <div class="col-sm-6">
+        <iframe [src]="song.uri | safeUrl:'https://open.spotify.com/embed?uri='"
+        frameborder="0" allowtransparency="true"></iframe>
+    </div>
+
   </div>
 </div>
 

@@ -13,6 +13,7 @@ import { ArtistComponent } from './components/artist/artist.component';
 
 // Pipes
 import { NofotoPipe } from './pipes/nofoto.pipe';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
 
 // Routes
 import { app_Routing } from './app.route';
@@ -29,6 +30,7 @@ import { SpotifyService } from './services/spotify.service';
     NavbarComponent,
     ArtistComponent,
     NofotoPipe,
+    SafeUrlPipe,
   ],
   imports: [
     BrowserModule,
